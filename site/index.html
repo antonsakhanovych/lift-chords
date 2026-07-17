@@ -1,38 +1,44 @@
 <!doctype html>
 <html lang="ru">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Лифт — аккорды</title>
-  <link rel="icon" href="assets/icon.png" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Лифт — аккорды</title>
+    <link rel="icon" href="assets/icon.png" />
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <header class="hero">
-    <img class="hero-art" src="assets/icon.png" alt="Обложка «Лифт» — Варя Пипко" />
-    <h1 class="hero-title">ЛИФТ</h1>
-    <p class="hero-artist">Варя Пипко</p>
-    <nav class="listen-links">
-      <a class="listen-link" href="#" data-platform="spotify">Spotify</a>
-      <a class="listen-link" href="#" data-platform="youtube">YouTube</a>
-      <a class="listen-link" href="#" data-platform="apple-music">Apple Music</a>
-    </nav>
-  </header>
+    <header class="hero">
+        <img class="hero-art" src="assets/icon.png" alt="Обложка «Лифт» — Варя Пипко" />
+        <h1 class="hero-title">ЛИФТ</h1>
+        <p class="hero-artist">Варя Пипко</p>
+        <nav class="listen-links">
+            <a class="listen-link" href="https://open.spotify.com/track/4ZFWNr1PVUYPPh8xa62FY5"
+                data-platform="spotify">Spotify</a>
+            <a class="listen-link" href="https://www.youtube.com/watch?v=rIabeNr67ls"
+                data-platform="youtube">YouTube</a>
+            <a class="listen-link" href="https://music.apple.com/us/song/%D0%BB%D0%B8%D1%84%D1%82/6784521327"
+                data-platform="apple-music">Apple Music</a>
+        </nav>
+    </header>
 
-  <main>
-    <section class="controls">
-      <label for="key-slider">Тональность: <strong id="key-label">Am</strong></label>
-      <input type="range" id="key-slider" min="-5" max="6" value="0" step="1" />
-      <a class="download-link" href="lift.pdf" download>Скачать PDF</a>
-    </section>
+    <main>
+        <section class="controls">
+            <label for="key-slider">Тональность: <strong id="key-label">Am</strong></label>
+            <input type="range" id="key-slider" min="-5" max="6" value="0" step="1" />
+            <a class="download-link" href="lift.pdf" download>Скачать PDF</a>
+        </section>
 
-    <section id="chord-sheet" class="chord-sheet" aria-live="polite"></section>
-  </main>
+        <section id="chord-sheet" class="chord-sheet" aria-live="polite"></section>
+    </main>
 
-  <footer class="site-footer">
-    <a href="https://github.com/antonsakhanovych/lift-chords">GitHub</a>
-  </footer>
+    <footer class="site-footer">
+        <a href="https://github.com/antonsakhanovych/lift-chords">GitHub</a>
+    </footer>
 
-  <script type="module" src="main.js"></script>
+    <script type="module" src="main.js"></script>
 </body>
+
 </html>
