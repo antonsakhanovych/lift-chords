@@ -17,11 +17,16 @@
 //
 //     === #raw("[[Куплет 1]]")
 
-#import "@preview/conchord:0.4.0": chordify, sized-chordlib
+#import "@preview/conchord:0.4.0": chordify, sized-chordlib, overchord, shift-chord-tonality
+
+#let transpose = int(sys.inputs.at("transpose", default: "0"))
+#let web = sys.inputs.at("web", default: "false") == "true"
+#let transposed-chord(name) = overchord(shift-chord-tonality(name, transpose))
 
 #set page(
   paper: "a4",
   margin: (x: 2.2cm, y: 2cm),
+  height: if web { auto } else { 29.7cm },
 )
 
 #set text(
@@ -33,7 +38,7 @@
 #let laq = sym.quote.chevron.l
 #let raq = sym.quote.chevron.r
 
-#show: chordify
+#show: chordify.with(line-chord: transposed-chord)
 
 #h(1fr)#box[
   #set align(center)
