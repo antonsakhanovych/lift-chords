@@ -1,0 +1,127 @@
+:root {
+  --bg: #220d29;
+  --bg-card: #3a1546;
+  --accent: #d8a13b;
+  --text: #f5ece0;
+  --text-dim: #c9b8d4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Georgia, "Liberation Serif", serif;
+}
+
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 2rem 1rem 3rem;
+  background: radial-gradient(circle at top, #4a1a57, var(--bg) 70%);
+}
+
+.hero-art {
+  width: min(320px, 80%);
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  letter-spacing: 0.1em;
+  margin: 1rem 0 0;
+  color: var(--text);
+  text-shadow: 0 0 20px rgba(216, 161, 59, 0.4);
+}
+
+.hero-artist {
+  color: var(--text-dim);
+  margin-top: 0.25rem;
+}
+
+.listen-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.listen-link {
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.listen-link:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem 4rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin: -2rem 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.controls label {
+  color: var(--text-dim);
+}
+
+#key-slider {
+  flex: 1;
+  min-width: 150px;
+  accent-color: var(--accent);
+}
+
+.download-link {
+  color: var(--bg);
+  background: var(--accent);
+  border-radius: 999px;
+  padding: 0.5rem 1.2rem;
+  text-decoration: none;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.chord-sheet {
+  background: var(--text);
+  color: #1a0e1f;
+  border-radius: 12px;
+  padding: 1.5rem;
+  overflow-x: auto;
+}
+
+.chord-sheet svg {
+  width: 100%;
+  height: auto;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--text-dim);
+}
+
+.site-footer a {
+  color: var(--text-dim);
+}
