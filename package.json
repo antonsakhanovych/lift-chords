@@ -1,0 +1,14 @@
+{
+  "name": "lift-chords-site",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p site/tsconfig.json",
+    "test": "tsc -p site/tsconfig.json && node --test 'site/dist/*.test.js'"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "typescript": "^5.6.0"
+  }
+}
