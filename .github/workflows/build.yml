@@ -1,0 +1,69 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [mainline]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: typst-community/setup-typst@v5
+        with:
+          typst-version: "0.14.2"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+
+      - name: Install TypeScript
+        run: npm ci
+
+      - name: Compile site TypeScript
+        run: npm run build
+
+      - name: Build chord sheet for every key
+        run: |
+          mkdir -p dist/keys
+          for shift in -5 -4 -3 -2 -1 0 1 2 3 4 5 6; do
+            typst compile lift.typ --input transpose=$shift --input web=true --format svg "dist/keys/$shift.svg"
+          done
+
+      - name: Build downloadable PDF
+        run: typst compile lift.typ --input transpose=0 --input web=false dist/lift.pdf
+
+      - name: Assemble site
+        run: |
+          cp site/index.html dist/index.html
+          cp site/style.css dist/style.css
+          cp site/dist/main.js dist/main.js
+          cp site/dist/chordKey.js dist/chordKey.js
+          cp -r assets dist/assets
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment
