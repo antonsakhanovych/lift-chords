@@ -50,6 +50,7 @@ jobs:
           cp site/dist/main.js dist/main.js
           cp site/dist/chordKey.js dist/chordKey.js
           cp -r assets dist/assets
+          cp site/CNAME dist/CNAME
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
