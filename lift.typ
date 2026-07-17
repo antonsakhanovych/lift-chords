@@ -43,6 +43,7 @@
 #h(1fr)#box[
   #set align(center)
   = Лифт
+  #text(size: 10pt, style: "italic")[Варя Пипко]
 ]#h(5fr)
 
 #place(right, dx: -1em, {
